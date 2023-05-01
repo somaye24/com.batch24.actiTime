@@ -45,7 +45,7 @@ public class DriverScript {
 		}
 
 	}
-	@Test  //after unit test we shall remove annotation
+	 //after unit test we shall remove annotation
 	public void initApplication() { // we need to run browser
 		String browser = prop.getProperty("browser");
 
