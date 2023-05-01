@@ -44,6 +44,14 @@ public class EnterPage extends DriverScript {
 		public void clickTaskMenu() {
 			menuTask.click();
 		}
+		
+		public void clickReportsMenu() {
+			menuReports.click();
+		}
+		
+		public void clickUsersMenu() {
+			menuUsers.click();
+		}
 
 		
 		
