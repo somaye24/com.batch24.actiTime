@@ -1,5 +1,7 @@
 package com.acti.pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.acti.base.DriverScript;
@@ -14,6 +16,15 @@ import com.acti.base.DriverScript;
 public class EnterPage extends DriverScript {
 	
 //	************************** Page Locators***************************************
+	
+	@FindBy(id = "logoutLink") WebElement logoutLink;
+	@FindBy(xpath = "//a[@class='userGuideLink']") WebElement userLoggedText;
+	@FindBy(id = "container_tasks") WebElement menuTask;
+	@FindBy(id = "container_reports") WebElement menuReports;
+	@FindBy(id = "container_users") WebElement menuUsers;
+	
+	
+	
 // **************************** Page Initialization********************************
 	
 		public EnterPage () {
@@ -21,5 +32,20 @@ public class EnterPage extends DriverScript {
 		}
 		
 // *********** Create method for each locator*************
+		
+		public void clickLogout() {
+			logoutLink.click();
+		}
+		
+		public String getUserLoggedIn() {
+			return userLoggedText.getText();
+		}
+		
+		public void clickTaskMenu() {
+			menuTask.click();
+		}
 
+		
+		
+		
 }

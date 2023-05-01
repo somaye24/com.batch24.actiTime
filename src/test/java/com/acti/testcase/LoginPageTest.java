@@ -30,8 +30,8 @@ public class LoginPageTest extends BaseTest{
 	}
 	@Test
 	public void testLoginFunction() {
-		lp.enterUsername("trainee");
-		lp.enterPassword("trainee");
+		lp.enterUsername("admin");
+		lp.enterPassword("manager");
 		lp.clickLoginButton();
 		
 	}
