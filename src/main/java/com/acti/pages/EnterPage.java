@@ -18,7 +18,7 @@ public class EnterPage extends DriverScript {
 //	************************** Page Locators***************************************
 	
 	@FindBy(id = "logoutLink") WebElement logoutLink;
-	@FindBy(xpath = "//a[@class='userGuideLink']") WebElement userLoggedText;
+	@FindBy(xpath = "//a[@class='userProfileLink username ']") WebElement userLoggedText;
 	@FindBy(id = "container_tasks") WebElement menuTask;
 	@FindBy(id = "container_reports") WebElement menuReports;
 	@FindBy(id = "container_users") WebElement menuUsers;

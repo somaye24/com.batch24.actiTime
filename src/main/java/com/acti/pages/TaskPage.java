@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.acti.base.DriverScript;
+import com.acti.utils.Helper;
 
 /* Name= Task Page
  * Description: Define Task page datails and methods
@@ -16,22 +17,19 @@ public class TaskPage extends DriverScript  {
 	
 //	************************** Page Locators***************************************
 	
-	@FindBy(id = "container_tasks") WebElement menuTask;
-	@FindBy(xpath = "//div[@class='title ellipsis']") WebElement addNewDropdown;
+
+	@FindBy(xpath = "//div[@class='title ellipsis']") WebElement addNewButton;
 	@FindBy(xpath = "//div[@class='item createNewCustomer']") WebElement newCustomerOption;
-	@FindBy(xpath = "//input[@placeholder='Enter Customer Name'][1]") WebElement customerNameText;
-	@FindBy(xpath = "//textarea[@placeholder='Enter Customer Description']") WebElement customerDescriptionText;
+	@FindBy(xpath = "//input[@class='inputFieldWithPlaceholder newNameField inputNameField']") WebElement customerNameTextbox;
+	@FindBy(xpath = "//textarea[@placeholder='Enter Customer Description']") WebElement customerDescriptionTextArea;
 	@FindBy(xpath = "//div[contains(text(),'Create Customer')]") WebElement createCostumerButton;
-	@FindBy(id = "logoutLink") WebElement logoutLink;
-	@FindBy(id = "username") WebElement usernameTextbox;
-	@FindBy(name= "pwd") WebElement passwordTextbox;
-	@FindBy(id = "loginButton") WebElement loginButton;
-	@FindBy(id = "container_tasks") WebElement menuTask1;
-	@FindBy(xpath = "//div[@class='node customerNode editable selected']//div[@class='title']") WebElement addedCustomer;
-	@FindBy(xpath ="//div[@class='titleEditButtonContainer']//div[@class='editButton']") WebElement settingMenu;
-	@FindBy(xpath = "(//div[@class='action'])[1]") WebElement menuAction;
-	@FindBy(xpath = "(//div[text()='Delete'])[2]") WebElement deleteButton;
-	@FindBy(id = "logoutLink") WebElement logoutLink1;
+	@FindBy(xpath = "//span[@class='innerHtml']") WebElement successMsg;
+	@FindBy(xpath = "//input[@placeholder='Start typing name ...']") WebElement textboxStartTyping;
+	@FindBy(xpath = "//div[@class='filteredContainer']//div[@class='title']") WebElement searchedCustomer;
+	@FindBy(xpath = "//div[@class='titleEditButtonContainer']//div[@class='editButton']") WebElement buttonEdit;
+	@FindBy(xpath = "(//div[@class='action'])[1]") WebElement buttonAction;
+	@FindBy(xpath = "(//div[text()='Delete'])[2]") WebElement buttonDelete;
+	@FindBy(xpath = "//span[normalize-space()='Delete permanently']") WebElement buttonDeletePermanently;
 // **************************** Page Initialization********************************
 	
 			public TaskPage () {
@@ -40,70 +38,58 @@ public class TaskPage extends DriverScript  {
 			
 // *********** Create method for each locator*************
 			
-		public void clickTaskMenu() {
-			
-			menuTask.click();
+		public void searchCreatedCustomer(String customername) {
+			textboxStartTyping.sendKeys(customername);
 		}
 		
-		public void clickAddNewDropdown() {
-			addNewDropdown.click();
+		public void clickSearchedCustomer() {
+			searchedCustomer.click();
+		}
+		
+		public void clickButtonEdit() {
+			buttonEdit.click();
+			Helper.sleep();
+		}
+		
+		public void clickButtonAction() {
+			buttonAction.click();
+			Helper.sleep();
+		}
+		
+		public void clickButtonDelete() {
+			buttonDelete.click();
+			Helper.sleep();
+		}
+		
+		public void clickDeletePermanently() {
+			buttonDeletePermanently.click();
+			Helper.sleep();
+		}
+		
+		public void clickAddNewButton() {
+			addNewButton.click();
 		}
 		
 		public void clickNewCostumerOption() {
 			newCustomerOption.click();
 		}
 		
-		public void enterCustomerName() {
-			customerNameText.sendKeys("Allen");
+		public void enterCustomerName(String CustomerName) {
+			customerNameTextbox.sendKeys(CustomerName);
 		}
 		
-		public void enterCustomerDescription() {
-			customerDescriptionText.sendKeys("Test");
+		public void enterCustomerDescription(String CustomerDescription) {
+			customerDescriptionTextArea.sendKeys(CustomerDescription);
 		}
 		
-		public void clickNewCustomerButton() {
+		public void clickCreatCustomer() {
 			createCostumerButton.click();
 		}
 		
-		public void clickLogout() {
-			logoutLink.click();
+		public String getSuccessMsg() {
+			return successMsg.getText();
 		}
 		
-		public void enterUsername(String username) {
-			usernameTextbox.sendKeys(username);
-		}
-		
-		public void enterPassword(String password) {
-			passwordTextbox.sendKeys(password);
-		}
-		
-		public void clickLoginButton() {
-			loginButton.click();
-		}
-		
-		public void clickTaskMenu1() {
-			
-			menuTask.click();
-		}
-		
-		public void clickAddedCustomer() {
-			addedCustomer.click();
-		}
-		
-		public void clickSettingMenu() {
-			settingMenu.click();
-		}
-		
-		public void clickActionButton() {
-			menuAction.click();
-		}
-		
-		public void deleteAddedCustomer() {
-			deleteButton.click();
-		}
-		
-		public void clickLogout1() {
-			logoutLink.click();
-		}
+
 
 }
