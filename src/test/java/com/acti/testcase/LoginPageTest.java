@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class LoginPageTest extends BaseTest{
 	
 
-	
+	@Test
 	public void testLoginPageTitle() {
 		String actual = lp.getLoginPageTitle();
 		System.out.println(actual);
@@ -16,19 +16,19 @@ public class LoginPageTest extends BaseTest{
 		Assert.assertEquals(actual, expected);
 		
 	}
-	
+	@Test
 	public void testActiImgDisplayed() {
 		boolean flag = lp.verifyActiImage();
 		Assert.assertTrue(flag);
 		
 	}
-	
+	@Test
 	public void testForgotPasswordDisplayed() {
 		boolean flag = lp.verifyForgotPasswordLink();
 		Assert.assertTrue(flag);
 		
 	}
-	
+	@Test
 	public void testLoginFunction() {
 		lp.enterUsername("admin");
 		lp.enterPassword("manager");
@@ -40,7 +40,7 @@ public class LoginPageTest extends BaseTest{
 		ep.clickLogout();
 		
 	}
-	
+	@Test
 	public void testInvalidCredientials() throws InterruptedException {
 		lp.enterUsername("trainee");
 		lp.clickLoginButton();
